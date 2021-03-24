@@ -9,8 +9,8 @@ DATABASE = SqliteDatabase('journal.db')
 
 class Post(Model):
     title = TextField()
-    date = DateField()
-    time_spent = FloatField()
+    date = TextField()
+    time_spent = TextField()
     content = TextField()
     resources = TextField()
 
