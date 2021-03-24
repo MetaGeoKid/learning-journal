@@ -1,6 +1,4 @@
 from flask import (Flask, g, render_template, flash, redirect, url_for, abort)
-#from flask_bcrypt import check_password_hash
-#from flask_login import LoginManager, login_user, logout_user, login_required, current_user
 
 import models
 import forms
@@ -39,8 +37,8 @@ def new_entry():
     if new_entry.validate_on_submit():
         models.Post.create(
             title=new_entry.title.data.strip(),
-            date=new_entry.date,
-            time_spent=new_entry.time_spent,
+            date=new_entry.data.strip(),
+            time_spent=new_entry.time_spent.data.strip(),
             content=new_entry.content.data.strip(),
             resources=new_entry.resources.data.strip()
         )
@@ -64,4 +62,5 @@ def edit_entry():
 
 
 if __name__ == '__main__':
+    models.initialize()
     app.run(debug=DEBUG, host= HOST, port=PORT)
