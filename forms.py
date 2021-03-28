@@ -6,7 +6,7 @@ from wtforms.validators import (DataRequired, Regexp, ValidationError, Email,
 
 class PostForm(Form):
     title = TextAreaField(validators=[DataRequired()])
-    date = TextAreaField(validators=[DataRequired()])
-    time_spent = FloatField("How many hours?", validators=[DataRequired()])
+    date = TextAreaField("When did you learn something new?", validators=[DataRequired()])
+    time_spent = TextAreaField("How many hours did it take?", validators=[DataRequired()])
     content = TextAreaField("What did you learn?", validators=[DataRequired()])
-    resources = TextAreaField(validators=[DataRequired()])
+    resources = TextAreaField("Who or what helped you learn?", validators=[DataRequired()])
