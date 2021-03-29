@@ -2,15 +2,13 @@ import datetime
 
 from peewee import *
 
-import forms
-
 DATABASE = SqliteDatabase('journal.db')
 
 
 class Post(Model):
     title = TextField()
-    date = TextField()
-    time_spent = TextField()
+    date = DateField(default=datetime.datetime.now)
+    time_spent = IntegerField()
     content = TextField()
     resources = TextField()
 

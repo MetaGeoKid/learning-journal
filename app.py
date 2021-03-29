@@ -28,7 +28,7 @@ def after_request(response):
 @app.route('/')
 @app.route('/entries', methods=('GET', 'POST'))
 def home():
-    stream = models.Post.select()
+    stream = models.Post.select().order_by(models.Post.date.desc())
     return render_template('home.html', stream=stream)
 
 
@@ -38,12 +38,12 @@ def new_entry():
     if journal_entry.validate_on_submit():
         models.Post.create(
             title=journal_entry.title.data.strip(),
-            date=journal_entry.date.data.strip(),
-            time_spent=journal_entry.time_spent.data.strip(),
+            date=journal_entry.date.data,
+            time_spent=journal_entry.time_spent.data,
             content=journal_entry.content.data.strip(),
             resources=journal_entry.resources.data.strip()
         )
-        flash("New Entry Made! Thanks!", "success")
+        flash("New Entry Made!", "success")
         return redirect(url_for('home'))
     return render_template('new.html', new_entry=journal_entry)
 
@@ -54,8 +54,8 @@ def view_entry(entry_id):
     return render_template('detail.html', stream=entries)
 
 
-# referenced https://github.com/andradm/Journal-project/blob/main/app.py for application and understanding of how to
-# edit an entry
+# referenced https://github.com/andradm/Journal-project/blob/main/app.py for application and understanding of how
+# to edit an entry
 @app.route('/entries/<int:entry_id>/edit', methods=('GET', 'POST'))
 def edit_entry(entry_id):
     entry = models.Post.get(models.Post.id == entry_id)

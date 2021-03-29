@@ -7,8 +7,8 @@
         <link href="https://fonts.googleapis.com/css?family=Cousine:400" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Work+Sans:600" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link rel="stylesheet" href="../static/css/normalize.css">
-        <link rel="stylesheet" href="../static/css/site.css">
+        <link rel="stylesheet" href="/static/css/normalize.css">
+        <link rel="stylesheet" href="/static/css/site.css">
     </head>
     <body>
         <header>
@@ -16,11 +16,24 @@
                 <div class="site-header">
                     <a class="logo" href="{{ url_for('home')}}"><i class="material-icons">library_books</i></a>
                     <a class="button icon-right" href="{{ url_for('new_entry')}}"><span>New Entry</span> <i class="material-icons">add</i></a>
+                    <div class="flashes messages">
+                        {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                        <div class="flashes">
+                            {% for message in messages %}
+                            <ul>{{ message }}</ul>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                        {% endwith %}
+                    </div>
                 </div>
             </div>
         </header>
         <section>
             <div class="container">
+
+
                 {% block content %}
 
                 {% endblock %}

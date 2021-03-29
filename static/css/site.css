@@ -224,9 +224,24 @@ form textarea:hover {
 input[type=submit] {
 	margin-right: 5px;
 }
-
-
-
+.flashes {
+    background: #fff;
+    margin: 60px auto 120px;
+    max-width: 885px;
+    border: 1px solid #E6E6E6;
+    border-bottom: 0;
+}
+.messages {
+    border: 0;
+}
+.messages ul {
+    color: #fff;
+    display: block;
+    font-size: 1.2em;
+    font-weight: bold;
+    letter-spacing: 0.025em;
+    text-align: center;
+}
 
 
 
