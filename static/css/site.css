@@ -225,11 +225,9 @@ input[type=submit] {
 	margin-right: 5px;
 }
 .flashes {
-    background: #fff;
-    margin: 60px auto 120px;
-    max-width: 885px;
-    border: 1px solid #E6E6E6;
-    border-bottom: 0;
+    background: #678f89;
+    margin: 10px auto 10px;
+    max-width: 250px;
 }
 .messages {
     border: 0;
@@ -241,8 +239,8 @@ input[type=submit] {
     font-weight: bold;
     letter-spacing: 0.025em;
     text-align: center;
+    padding-inline-start: 10px;
 }
-
 
 
 
